@@ -15,9 +15,30 @@ services:
       - 8334:8334  # rpc
     restart: always
 
+  lnd:
+    hostname: lnd
+    build:
+      context: lnd/
+    volumes:
+      - btcd_rpc:/rpc
+      - lnd:/root/.lnd/
+    ports:
+      - 9735:9735
+    environment:
+      NETWORK: mainnet
+      RPCUSER:
+      RPCPASS:
+      EXTERNAL_IP:
+    depends_on:
+      - btcd
+    restart: always
+
 volumes:
   btcd_rpc:
     driver: local
 
   btcd_data:
+    driver: local
+
+  lnd:
     driver: local
