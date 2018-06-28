@@ -33,6 +33,14 @@ services:
       - btcd
     restart: always
 
+  web:
+    hostname: web
+    image: nginx:alpine
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+    ports:
+      - 80:80
+
 volumes:
   btcd_rpc:
     driver: local
