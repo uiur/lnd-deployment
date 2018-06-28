@@ -53,6 +53,6 @@ exec lnd \
     --rpclisten=0.0.0.0:10009 \
     --restlisten=0.0.0.0:8080 \
     "--externalip"="$EXTERNAL_IP" \
-    "--alias"="uiu" \
-    "--color"="#1965AB" \
+    "--alias"="ramen.network" \
+    "--color"="#F8C471" \
     "$@"
